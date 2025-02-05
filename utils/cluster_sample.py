@@ -11,7 +11,9 @@ class RandCluster:
         self.weights = self.weights/self.weights.sum()
         self.covariances = np.eye(self.n_components).reshape(1,self.n_components, self.n_components)
 
-    def gmm_sampling_idont_know_name(self,):
+    def initialize_gmm(self):
+        if not hasattr(self, 'means') or not hasattr(self, 'weights') or not hasattr(self, 'covariances'):
+            raise RuntimeError("Call rand_means first to initialize GMM parameters")
         gmm = GaussianMixture(n_components= self.n_components)
         gmm.means_ = self.means
         gmm.weights_ = self.weights
