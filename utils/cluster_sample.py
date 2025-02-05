@@ -20,7 +20,7 @@ class RandCluster:
         gmm.covariances_ = self.covariances
         self.gmm_sampling = gmm
 
-    def sample_again(self, n_samples):
+    def sample(self, n_samples):
         self.gmm_sampling_idont_know_name()
         sample = self.gmm_sampling.sample(n_samples)
         return sample
